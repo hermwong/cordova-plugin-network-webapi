@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="org.apache.cordova.core.network-information"
+      version="0.1.0">
+
+    <name>Network Information</name>
+    <description>Cordova Network Information Plugin</description>
+    <license>Apache</license>
+    <keywords>cordova,network,information</keywords>
+    
+    <js-module src="www/network.js" name="network">
+        <clobbers target="navigator.connection" />
+        <clobbers target="navigator.network.connection" />
+    </js-module>
+
+    <js-module src="www/Connection.js" name="Connection">
+        <clobbers target="Connection" />
+    </js-module>
+                
+    <!-- firefoxos --> 
+    <platform name="firefoxos">
+        <config-file target="config.xml" parent="/*">
+            <param name="firefox-package" value="Network" />
+        </config-file>                                      
+        
+        <source-file src="src/firefoxos/network.js" />
+    </platform>
+            
+</plugin>
